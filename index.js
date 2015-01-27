@@ -1,6 +1,6 @@
 var async = require('async');
 var Twit = require('twit');
-var config = require('./my-config');
+var config = require('./config');
 
 var twitter = new Twit(config);
 
