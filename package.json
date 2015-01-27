@@ -1,6 +1,6 @@
 {
   "name": "rayban",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Remove Ray-Ban Ads from tweets",
   "author": "Tatsuya Oiwa <tatsuyaoiw@gmail.com>",
   "dependencies": {
