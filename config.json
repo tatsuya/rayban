@@ -6,6 +6,7 @@
     "access_token_secret": "..."
   },
   "params": {
-    "screen_name": "tatsuyaoiw"
+    "screen_name": "tatsuyaoiw",
+    "count": 200
   }
 }

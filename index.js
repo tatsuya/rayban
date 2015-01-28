@@ -7,7 +7,7 @@ var params = config.params;
 
 var twitter = new Twit(auth);
 
-twitter.get('statuses/user_timeline', { screen_name: params.screen_name }, function(err, tweets, res) {
+twitter.get('statuses/user_timeline', params, function(err, tweets, res) {
   if (err) {
     console.log(err);
     return;
