@@ -10,11 +10,9 @@ Remove Ray-Ban Ads from tweets.
   npm install
   ```
 
-2. Input your credentials to `config.json`
+2. Update `config.json` to set your twitter name and credentials
 
-3. Put your twitter name to `index.js`
-
-4. Run it.
+3. Run it.
 
   ```
   node index.js
