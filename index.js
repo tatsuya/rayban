@@ -1,13 +1,13 @@
 var async = require('async');
 var Twit = require('twit');
+
 var config = require('./config');
+var auth = config.auth;
+var params = config.params;
 
-var twitter = new Twit(config);
+var twitter = new Twit(auth);
 
-var RAYBAN = 'レイバン';
-var user = 'tatsuyaoiw';
-
-twitter.get('statuses/user_timeline', { screen_name: user }, function(err, tweets, res) {
+twitter.get('statuses/user_timeline', { screen_name: params.screen_name }, function(err, tweets, res) {
   if (err) {
     console.log(err);
     return;
@@ -19,7 +19,7 @@ twitter.get('statuses/user_timeline', { screen_name: user }, function(err, tweet
 
   // Collect Ray-Ban Tweet IDs
   var ids = tweets.filter(function(tweet) {
-    return tweet.text.indexOf(RAYBAN) > -1;
+    return isRayBan(tweet.text);
   }).map(function(tweet) {
     return tweet.id_str;
   });
@@ -33,6 +33,11 @@ twitter.get('statuses/user_timeline', { screen_name: user }, function(err, tweet
     console.log(results);
   });
 });
+
+function isRayBan(text) {
+  var RAYBAN = 'レイバンのサングラス';
+  return text.indexOf(RAYBAN) > -1;
+}
 
 function destroy(id, callback) {
   twitter.post('statuses/destroy/:id', { id: id }, function(err, data, res) {
